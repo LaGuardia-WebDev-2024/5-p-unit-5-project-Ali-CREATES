@@ -1,9 +1,9 @@
 <!-- Unit 5 Project
 Requirements
-[  ] <div> and <span>
-[  ] height: and width:
-[  ] margin: and padding: 
-[  ] Three Images
+[yes] <div> and <span>`  
+[yes] height: and width:
+[yes] margin: and padding: 
+[yes] Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Flexbox
@@ -16,17 +16,78 @@ Select ONE Additional Feature to Add
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bubblegum Sans"
+      rel="stylesheet"
+    />
+    <title>Unit 5 Project</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: #fff5e0;
+        color: #141e46;
+        font-family: "Bubblegum Sans";
+        font-size: 18px;
+        background-image: url("https://64.media.tumblr.com/144cba0bf170072a67bc00a777da824e/tumblr_mxcdf5DSih1qlx3hqo1_640.jpg");
+        background-size: 2000px 750px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      p {
+        margin-top: 1px;
+        margin-bottom: 1px;
+        margin-right: 1px;
+        margin-left: 1px;
+      }
+      div {
+        padding-top: 1px;
+      }
+      #randomImage {
+        border-radius: 30px;
+        border: 6px solid brown;
+        width: 230px;
+        height: 155px;
+      }
+      .burger {
+        background-size: 2000px 750px;
+      }
+      .shadows {
+        background-color: #f9d983;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="burger">
+      <h1 class="shadows">Find Your Perfect Sandwhich!</h1>
+      <p>
+        Click the button below to find your
+        <span style="color: blue">perfect</span> sandwhich!
+      </p>
+      <button id="changeImage">Find Your Sandwhich!</button><br />
+      <br />
+      <img id="randomImage" />
+    </div>
+    <script>
+      $(document).ready(function () {
+        var images = [
+          "https://www.madebynashish.com/wp-content/uploads/2020/06/Hot-Honey-Chicken-Sandwich-041-Edit-2-2.jpg",
+          "https://www.dontgobaconmyheart.co.uk/wp-content/uploads/2018/05/chicken-pesto-grilled-cheese-new.jpg",
+          "https://assets.epicurious.com/photos/5af1b6634692b76178e65769/master/pass/Crispy-Fish-Sandwich-03052018.jpg",
+          "https://qcchopshop.com/cdn/shop/files/3-american-classic-reg.png?v=1704230575",
+          "https://www.seriouseats.com/thmb/Jw51qbtg89WKmYMX3F-bHSDHPG0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240301-SEA-BEC-AmandaSuarez-hero-6f228860d4b544799961b97935ce08f6.jpg",
+        ];
 
-<head>
-  <title>Unit 5 Project</title>
-  <meta charset="utf-8">
-  <style>
+        function displayRandomImage() {
+          var randomIndex = Math.floor(Math.random() * images.length);
+          $("#randomImage").attr("src", images[randomIndex]);
+        }
 
-  </style>
-</head>
-<body>
+        displayRandomImage(); // Display an image on page load
 
- 
-
-</body>
+        $("#changeImage").click(displayRandomImage);
+      });
+    </script>
+  </body>
 </html>
